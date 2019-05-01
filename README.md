@@ -29,4 +29,4 @@ You get all the files grouped according to their respective extensions.
 
 >This is just a basic implementation of the concept. 
 
->Any kind of improvement would be highly appreciated. Give us stars if you liked it!
+>Any kind of improvement would be highly appreciated. Give it a star if you liked it!
