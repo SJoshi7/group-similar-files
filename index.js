@@ -1,6 +1,7 @@
-//import path and fs modules
+//import path, fs and shelljs modules
 const path = require('path');
 const fs = require('fs');
+const shell = require('shelljs');
 
 //get the current working directory
 var dirPath = process.cwd();
@@ -31,14 +32,24 @@ fs.readdir(dirPath,function(err,files){
         if(fileType.indexOf(value)===-1){
             fileType.push(value);
             try {
-                if (!fs.existsSync("All_"+value+"._Files")){
-                  fs.mkdirSync("All_"+value+"._Files");
+                if (!fs.existsSync("All_"+value)){
+                  fs.mkdirSync("All_"+value);
                 }
               } catch (err) {
                 console.error(err)
             }
         }
     }
+
+    //move files into their respective folder 
+    for(var value of fileType){
+        for(var val of files){
+            if(value==path.extname(val)){
+                shell.mv(val,"All_"+value);
+            }
+        }
+    }
+
 
    
 
